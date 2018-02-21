@@ -19,7 +19,7 @@ pub struct Command {
 }
 
 /// A single workspace.
-#[derive(Debug)]
+#[derive(Debug,Clone)]
 pub struct Workspace {
     /// The logical number of the workspace. Corresponds to the command to switch to this
     /// workspace. For named workspaces, this will be -1.
@@ -42,7 +42,7 @@ pub struct Workspace {
 }
 
 /// The reply to the `get_workspaces` request.
-#[derive(Debug)]
+#[derive(Debug,Clone)]
 pub struct Workspaces {
     /// A list of workspaces.
     pub workspaces: Vec<Workspace>,
@@ -57,7 +57,7 @@ pub struct Subscribe {
 }
 
 /// A single output (display)
-#[derive(Debug)]
+#[derive(Debug,Clone)]
 pub struct Output {
     /// The name of this output (as seen in xrandr).
     pub name: String,
@@ -74,13 +74,13 @@ pub struct Output {
 }
 
 /// The reply to the `get_outputs` request.
-#[derive(Debug)]
+#[derive(Debug,Clone)]
 pub struct Outputs {
     /// A list of outputs (displays)
     pub outputs: Vec<Output>
 }
 
-#[derive(Debug)]
+#[derive(Debug,Clone)]
 pub enum NodeType {
     Root,
     Output,
@@ -92,7 +92,7 @@ pub enum NodeType {
     Unknown,
 }
 
-#[derive(Debug)]
+#[derive(Debug,Clone)]
 pub enum NodeBorder {
     Normal,
     None,
@@ -101,7 +101,7 @@ pub enum NodeBorder {
     Unknown,
 }
 
-#[derive(Debug)]
+#[derive(Debug,Clone)]
 pub enum NodeLayout {
     SplitH,
     SplitV,
@@ -114,7 +114,7 @@ pub enum NodeLayout {
 }
 
 /// The reply to the `get_tree` request.
-#[derive(Debug)]
+#[derive(Debug,Clone)]
 pub struct Node {
     /// List of child node IDs (see `nodes`, `floating_nodes` and `id`) in focus order. Traversing
     /// the tree by following the first entry in this array will result in eventually reaching the
